@@ -1,0 +1,6 @@
+numpy>=1.26,<2
+opencv-python>=4.9
+pandas>=2.0
+scikit-learn>=1.4
+supervision>=0.22
+ultralytics>=8.2
