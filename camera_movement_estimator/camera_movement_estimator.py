@@ -45,7 +45,7 @@ class CameraMovementEstimator():
         #read the stub
         if read_from_stub and stub_path is not None and os.path.exists(stub_path):
             with open(stub_path, 'rb') as f:
-                pickle.load(f)
+                return pickle.load(f)
             
             
         camera_movement = [[0,0]]*len(frames)
@@ -98,9 +98,3 @@ class CameraMovementEstimator():
             output_frames.append(frame) 
 
         return output_frames
-            
-            
-            
-            
-            
-            

@@ -11,7 +11,7 @@ class SpeedAndDistance_Estimator():
     def add_speed_and_distance_to_tracks(self,tracks):
         total_distance = {}
         for object, object_tracks in tracks.items():
-            if object == 'ball' or object == 'referee':
+            if object == 'ball' or object == 'referees':
                 continue
             number_of_frames = len(object_tracks)
             for frame_number in range(0,number_of_frames, self.frame_window):
@@ -66,9 +66,8 @@ class SpeedAndDistance_Estimator():
                         position[1]+=40
                         position = tuple(map(int,position))
                         
-                        text = f"Speed: {speed: .2f} km/h\nDistance: {distance: .2f} m"
                         frame = cv2.putText(frame,f"{speed: .2f} km/h",position, cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,0,0),2)
                         frame = cv2.putText(frame,f"{distance: .2f} m",(position[0],position[1]+20), cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,0,0),2)
                         
-            output_frames.append(frame)        
-        return output_frames            
+            output_frames.append(frame)
+        return output_frames
